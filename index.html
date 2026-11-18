@@ -72,7 +72,7 @@
   </div>
 </div>
 
-<!-- CSS: Controls the visual design and bouncing-name appearance -->
+<!-- CSS: Yellow and black design with responsive sizing -->
 <style>
 .showcase {
   width: 100%;
@@ -148,7 +148,6 @@
   z-index: 2;
   touch-action: manipulation;
   user-select: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .showcase-name:hover,
@@ -234,24 +233,20 @@
 }
 </style>
 
-<!-- JavaScript: Handles bouncing animation, clicks, and champion facts -->
+<!-- JavaScript: Slower bouncing animation and clickable champion facts -->
 <script>
 (function () {
-  // Find the correct showcase container.
   const script = document.currentScript;
   const root = script.closest(".showcase");
 
   if (!root) return;
 
   const stage = root.querySelector(".showcase-stage");
-  const buttons = Array.from(
-    root.querySelectorAll(".showcase-name")
-  );
+  const buttons = Array.from(root.querySelectorAll(".showcase-name"));
 
   const factName = root.querySelector(".showcase-fact-name");
   const factText = root.querySelector(".showcase-fact-text");
 
-  // Champion facts.
   const facts = {
     arnold: {
       name: "Arnold Schwarzenegger",
@@ -287,11 +282,11 @@
     }
   };
 
-  // Give each name its own position and bouncing speed.
   let movers = [];
   let animationId = null;
   let previousTime = 0;
 
+  // Initialize positions and speeds.
   function initialize() {
     const stageWidth = stage.clientWidth;
     const stageHeight = stage.clientHeight;
@@ -312,17 +307,20 @@
         button: button,
         x: x,
         y: y,
+
+        // Another 50% reduction: 25% of original speed.
         speedX: (index % 2 === 0 ? 1 : -1) *
-          (1.2 + Math.random() * 1.5),
+          (1.2 + Math.random() * 1.5) * 0.25,
+
         speedY: (index % 3 === 0 ? -1 : 1) *
-          (1.1 + Math.random() * 1.5)
+          (1.1 + Math.random() * 1.5) * 0.25
       };
     });
 
     previousTime = 0;
   }
 
-  // Animate each name and reverse direction at the stage edges.
+  // Move each champion and bounce off the edges.
   function animate(time) {
     if (!stage.isConnected) return;
 
@@ -370,17 +368,14 @@
     animationId = requestAnimationFrame(animate);
   }
 
-  // Clicking a champion displays their individual fact.
+  // Display facts when a name is clicked.
   buttons.forEach(button => {
     button.addEventListener("click", function () {
       const champion = facts[this.dataset.id];
 
       if (!champion) return;
 
-      buttons.forEach(item => {
-        item.classList.remove("active");
-      });
-
+      buttons.forEach(item => item.classList.remove("active"));
       this.classList.add("active");
 
       factName.textContent = champion.name;
@@ -388,7 +383,7 @@
     });
   });
 
-  // Start the animation once the display has dimensions.
+  // Restart animation when display dimensions change.
   function start() {
     initialize();
 
@@ -399,20 +394,14 @@
     animationId = requestAnimationFrame(animate);
   }
 
-  // Handle browser resizing.
   if ("ResizeObserver" in window) {
-    const observer = new ResizeObserver(() => {
-      start();
-    });
-
+    const observer = new ResizeObserver(start);
     observer.observe(stage);
   } else {
     window.addEventListener("resize", start);
   }
 
-  // Initial setup.
   start();
-
 })();
 </script>
 
