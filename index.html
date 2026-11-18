@@ -39,56 +39,56 @@
      This box is empty on purpose. Leave it here. We will use it later.
      ===================================================================== -->
 <div class="showcase">
-  
-<!-- HTML: Interactive Mr. Olympia champion showcase -->
+
+<!-- HTML: Mr. Olympia interactive showcase -->
 <div class="showcase">
   <div class="showcase-heading">
     <div class="showcase-eyebrow">THE LEGENDS OF BODYBUILDING</div>
-    <div class="showcase-title">MR. OLYMPIA <span>HALL OF FAME</span></div>
-    <div class="showcase-subtitle">Click a champion to discover their legacy.</div>
+    <div class="showcase-title">MR. OLYMPIA</div>
+    <div class="showcase-subtitle">THE GREATEST CHAMPIONS OF ALL TIME</div>
   </div>
 
-  <div class="showcase-stage" aria-label="Bouncing Mr. Olympia champions">
-    <button class="showcase-name" type="button" data-id="arnold">Arnold</button>
-    <button class="showcase-name" type="button" data-id="ronnie">Ronnie Coleman</button>
-    <button class="showcase-name" type="button" data-id="lee">Lee Haney</button>
-    <button class="showcase-name" type="button" data-id="dorian">Dorian Yates</button>
-    <button class="showcase-name" type="button" data-id="jay">Jay Cutler</button>
-    <button class="showcase-name" type="button" data-id="phil">Phil Heath</button>
-    <button class="showcase-name" type="button" data-id="frank">Frank Zane</button>
-    <button class="showcase-name" type="button" data-id="sergio">Sergio Oliva</button>
+  <div class="showcase-stage">
+    <button class="showcase-name" data-id="arnold">Arnold</button>
+    <button class="showcase-name" data-id="ronnie">Ronnie Coleman</button>
+    <button class="showcase-name" data-id="lee">Lee Haney</button>
+    <button class="showcase-name" data-id="dorian">Dorian Yates</button>
+    <button class="showcase-name" data-id="jay">Jay Cutler</button>
+    <button class="showcase-name" data-id="phil">Phil Heath</button>
+    <button class="showcase-name" data-id="frank">Frank Zane</button>
+    <button class="showcase-name" data-id="sergio">Sergio Oliva</button>
   </div>
 
-  <div class="showcase-fact" aria-live="polite">
+  <div class="showcase-fact">
     <div class="showcase-fact-label">CHAMPION SPOTLIGHT</div>
-    <div class="showcase-fact-name">Choose Your Legend</div>
+    <div class="showcase-fact-name">SELECT A LEGEND</div>
     <div class="showcase-fact-text">
-      Select any bouncing name above to discover an interesting fact
-      about one of bodybuilding's greatest champions.
+      Click any bouncing champion's name to uncover an interesting fact about their bodybuilding legacy.
     </div>
   </div>
 
-  <div class="showcase-footer">8 LEGENDS <span>•</span> ONE STAGE <span>•</span> IMMORTAL LEGACIES</div>
+  <div class="showcase-footer">
+    8 LEGENDS &nbsp; • &nbsp; ONE STAGE &nbsp; • &nbsp; IMMORTAL LEGACIES
+  </div>
 </div>
 
-<!-- CSS: Yellow and black styling, responsive layout, and typography -->
+<!-- CSS: Controls the visual design and bouncing-name appearance -->
 <style>
 .showcase {
   width: 100%;
   max-width: 900px;
   height: 450px;
   margin: 0 auto;
-  padding: 17px;
+  padding: 15px;
   box-sizing: border-box;
   background: #FFEC00;
   color: #000000;
-  font-family: "Times New Roman", Times, serif;
   border: 3px solid #000000;
   border-radius: 12px;
-  overflow: hidden;
-  position: relative;
+  font-family: "Times New Roman", Times, serif;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   text-align: center;
 }
 
@@ -104,85 +104,85 @@
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 3px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .showcase-title {
-  font-size: clamp(23px, 5vw, 38px);
-  font-weight: 900;
+  font-size: clamp(27px, 5vw, 39px);
+  font-weight: bold;
+  letter-spacing: 2px;
   line-height: 1.1;
-  letter-spacing: -1px;
-}
-
-.showcase-title span {
-  display: block;
-  font-size: 0.65em;
-  letter-spacing: 4px;
 }
 
 .showcase-subtitle {
-  font-size: 14px;
-  margin-top: 7px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 5px;
 }
 
 .showcase-stage {
   position: relative;
-  width: 100%;
   flex: 1;
-  min-height: 180px;
-  margin-top: 10px;
+  min-height: 190px;
+  margin: 12px 0;
   overflow: hidden;
   border: 2px solid #000000;
-  border-radius: 9px;
-  background: rgba(255,255,255,0.18);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
 }
 
 .showcase-name {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 7px 12px;
+  padding: 8px 12px;
   background: #000000;
   color: #FFEC00;
   border: 2px solid #000000;
-  border-radius: 5px;
+  border-radius: 6px;
   font-family: "Times New Roman", Times, serif;
   font-size: 15px;
   font-weight: bold;
   white-space: nowrap;
   cursor: pointer;
+  z-index: 2;
   touch-action: manipulation;
   user-select: none;
-  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .showcase-name:hover,
-.showcase-name:focus-visible,
-.showcase-name.active {
-  background: #FFEC00;
+.showcase-name:focus-visible {
+  background: #FFFFFF;
   color: #000000;
   outline: 2px solid #000000;
   outline-offset: 2px;
 }
 
+.showcase-name.active {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 0 0 0 3px #000000;
+}
+
 .showcase-fact {
   flex-shrink: 0;
-  min-height: 95px;
-  margin-top: 10px;
-  padding: 10px 12px;
+  min-height: 100px;
+  padding: 10px;
   background: #000000;
   color: #FFEC00;
-  border-radius: 7px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .showcase-fact-label {
   font-size: 10px;
-  letter-spacing: 3px;
   font-weight: bold;
+  letter-spacing: 3px;
 }
 
 .showcase-fact-name {
@@ -191,44 +191,32 @@
 }
 
 .showcase-fact-text {
-  font-size: 14px;
-  line-height: 1.3;
   color: #FFFFFF;
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .showcase-footer {
   flex-shrink: 0;
+  margin-top: 9px;
   font-size: 10px;
   font-weight: bold;
-  letter-spacing: 2px;
-  margin-top: 9px;
-}
-
-.showcase-footer span {
-  padding: 0 5px;
+  letter-spacing: 1.5px;
 }
 
 @media (max-width: 480px) {
   .showcase {
     height: 440px;
-    padding: 12px;
-  }
-
-  .showcase-eyebrow {
-    font-size: 9px;
+    padding: 11px;
   }
 
   .showcase-title {
-    font-size: 27px;
-  }
-
-  .showcase-subtitle {
-    font-size: 12px;
+    font-size: 29px;
   }
 
   .showcase-name {
     font-size: 13px;
-    padding: 6px 9px;
+    padding: 7px 9px;
   }
 
   .showcase-fact-name {
@@ -246,131 +234,185 @@
 }
 </style>
 
-<!-- JavaScript: Animates champion names and displays facts when clicked -->
+<!-- JavaScript: Handles bouncing animation, clicks, and champion facts -->
 <script>
 (function () {
-  const root = document.currentScript.previousElementSibling.previousElementSibling.previousElementSibling;
+  // Find the correct showcase container.
+  const script = document.currentScript;
+  const root = script.closest(".showcase");
+
+  if (!root) return;
 
   const stage = root.querySelector(".showcase-stage");
-  const names = Array.from(root.querySelectorAll(".showcase-name"));
+  const buttons = Array.from(
+    root.querySelectorAll(".showcase-name")
+  );
+
   const factName = root.querySelector(".showcase-fact-name");
   const factText = root.querySelector(".showcase-fact-text");
 
+  // Champion facts.
   const facts = {
     arnold: {
       name: "Arnold Schwarzenegger",
-      fact: "Arnold won seven Mr. Olympia titles between 1970 and 1980. He became one of the most recognizable figures in bodybuilding history and later became a Hollywood superstar."
+      fact: "Arnold won 7 Mr. Olympia titles between 1970 and 1980. Beyond bodybuilding, he became a Hollywood superstar and served as Governor of California."
     },
     ronnie: {
       name: "Ronnie Coleman",
-      fact: "Ronnie won eight consecutive Mr. Olympia titles from 1998 to 2005. His legendary catchphrase was 'Yeah Buddy!' and he is famous for his incredible strength."
+      fact: "Ronnie won 8 consecutive Mr. Olympia titles from 1998 to 2005. He is famous for his incredible strength and legendary phrase: Yeah Buddy!"
     },
     lee: {
       name: "Lee Haney",
-      fact: "Lee Haney won eight consecutive Mr. Olympia titles from 1984 to 1991. He was the first bodybuilder to reach eight Mr. Olympia victories."
+      fact: "Lee won 8 consecutive Mr. Olympia titles from 1984 to 1991. He was the first bodybuilder to achieve eight Olympia victories."
     },
     dorian: {
       name: "Dorian Yates",
-      fact: "Dorian won six consecutive Mr. Olympia titles from 1992 to 1997. He revolutionized bodybuilding with his incredibly dense physique and intense training style."
+      fact: "Dorian won 6 consecutive Mr. Olympia titles from 1992 to 1997. His massive muscle density and intense training revolutionized bodybuilding."
     },
     jay: {
       name: "Jay Cutler",
-      fact: "Jay won four Mr. Olympia titles. He famously defeated Ronnie Coleman in 2006 and returned to reclaim his title in 2009 after losing it in 2008."
+      fact: "Jay won 4 Mr. Olympia titles. He famously defeated Ronnie Coleman in 2006 and regained his title in 2009."
     },
     phil: {
       name: "Phil Heath",
-      fact: "Phil Heath won seven consecutive Mr. Olympia titles from 2011 to 2017. Before bodybuilding, he played college basketball."
+      fact: "Phil won 7 consecutive Mr. Olympia titles from 2011 to 2017. Before bodybuilding, he played college basketball."
     },
     frank: {
       name: "Frank Zane",
-      fact: "Frank Zane won three Mr. Olympia titles from 1977 to 1979. He became famous for his remarkable symmetry, proportions, and aesthetics."
+      fact: "Frank won 3 Mr. Olympia titles from 1977 to 1979. He became famous for his exceptional symmetry, proportions, and aesthetic physique."
     },
     sergio: {
       name: "Sergio Oliva",
-      fact: "Known as 'The Myth,' Sergio won three consecutive Mr. Olympia titles from 1967 to 1969. His extraordinary physique made him one of bodybuilding's most iconic champions."
+      fact: "Nicknamed The Myth, Sergio won 3 consecutive Mr. Olympia titles from 1967 to 1969. His extraordinary physique made him a bodybuilding icon."
     }
   };
 
-  let positions = [];
-  let lastTime = 0;
-  let animationFrame;
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Give each name its own position and bouncing speed.
+  let movers = [];
+  let animationId = null;
+  let previousTime = 0;
 
-  function setup() {
-    const width = stage.clientWidth;
-    const height = stage.clientHeight;
+  function initialize() {
+    const stageWidth = stage.clientWidth;
+    const stageHeight = stage.clientHeight;
 
-    positions = names.map((button, i) => {
-      const maxX = Math.max(0, width - button.offsetWidth);
-      const maxY = Math.max(0, height - button.offsetHeight);
+    if (!stageWidth || !stageHeight) return;
+
+    movers = buttons.map((button, index) => {
+      const maxX = Math.max(0, stageWidth - button.offsetWidth);
+      const maxY = Math.max(0, stageHeight - button.offsetHeight);
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      button.style.left = x + "px";
+      button.style.top = y + "px";
 
       return {
-        x: Math.random() * maxX,
-        y: Math.random() * maxY,
-        vx: (Math.random() > 0.5 ? 1 : -1) * (0.45 + Math.random() * 0.65),
-        vy: (Math.random() > 0.5 ? 1 : -1) * (0.4 + Math.random() * 0.6)
+        button: button,
+        x: x,
+        y: y,
+        speedX: (index % 2 === 0 ? 1 : -1) *
+          (1.2 + Math.random() * 1.5),
+        speedY: (index % 3 === 0 ? -1 : 1) *
+          (1.1 + Math.random() * 1.5)
       };
     });
 
-    names.forEach((button, i) => {
-      button.style.transform =
-        `translate(${positions[i].x}px, ${positions[i].y}px)`;
-    });
+    previousTime = 0;
   }
 
+  // Animate each name and reverse direction at the stage edges.
   function animate(time) {
-    if (!lastTime) lastTime = time;
-    const delta = Math.min((time - lastTime) / 16.67, 2);
-    lastTime = time;
+    if (!stage.isConnected) return;
+
+    if (!previousTime) previousTime = time;
+
+    const delta = Math.min((time - previousTime) / 16.67, 2);
+    previousTime = time;
 
     const width = stage.clientWidth;
     const height = stage.clientHeight;
 
-    names.forEach((button, i) => {
-      const p = positions[i];
+    movers.forEach(mover => {
+      const button = mover.button;
+
       const maxX = Math.max(0, width - button.offsetWidth);
       const maxY = Math.max(0, height - button.offsetHeight);
 
-      p.x += p.vx * delta;
-      p.y += p.vy * delta;
+      mover.x += mover.speedX * delta;
+      mover.y += mover.speedY * delta;
 
-      if (p.x <= 0 || p.x >= maxX) {
-        p.vx *= -1;
-        p.x = Math.max(0, Math.min(p.x, maxX));
+      if (mover.x <= 0) {
+        mover.x = 0;
+        mover.speedX = Math.abs(mover.speedX);
       }
 
-      if (p.y <= 0 || p.y >= maxY) {
-        p.vy *= -1;
-        p.y = Math.max(0, Math.min(p.y, maxY));
+      if (mover.x >= maxX) {
+        mover.x = maxX;
+        mover.speedX = -Math.abs(mover.speedX);
       }
 
-      button.style.transform =
-        `translate(${p.x}px, ${p.y}px)`;
+      if (mover.y <= 0) {
+        mover.y = 0;
+        mover.speedY = Math.abs(mover.speedY);
+      }
+
+      if (mover.y >= maxY) {
+        mover.y = maxY;
+        mover.speedY = -Math.abs(mover.speedY);
+      }
+
+      button.style.left = mover.x + "px";
+      button.style.top = mover.y + "px";
     });
 
-    animationFrame = requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
   }
 
-  names.forEach(button => {
+  // Clicking a champion displays their individual fact.
+  buttons.forEach(button => {
     button.addEventListener("click", function () {
-      const selected = facts[this.dataset.id];
-      if (!selected) return;
+      const champion = facts[this.dataset.id];
 
-      names.forEach(n => n.classList.remove("active"));
+      if (!champion) return;
+
+      buttons.forEach(item => {
+        item.classList.remove("active");
+      });
+
       this.classList.add("active");
 
-      factName.textContent = selected.name;
-      factText.textContent = selected.fact;
+      factName.textContent = champion.name;
+      factText.textContent = champion.fact;
     });
   });
 
-  setup();
+  // Start the animation once the display has dimensions.
+  function start() {
+    initialize();
 
-  if (!reducedMotion) {
-    animationFrame = requestAnimationFrame(animate);
+    if (animationId !== null) {
+      cancelAnimationFrame(animationId);
+    }
+
+    animationId = requestAnimationFrame(animate);
   }
 
-  window.addEventListener("resize", setup);
+  // Handle browser resizing.
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(() => {
+      start();
+    });
+
+    observer.observe(stage);
+  } else {
+    window.addEventListener("resize", start);
+  }
+
+  // Initial setup.
+  start();
+
 })();
 </script>
 
